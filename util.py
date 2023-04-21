@@ -134,38 +134,41 @@ def validasiPassword(password: str) -> bool:
 
 def readCSV(path: str) -> None:
     # pembacaan file user
-    fileUser = open(path + "/user.csv", "r")
-    line = fileUser.readline() + "@"  # membaca 1 baris pada file dan diberi mark
-    while line != "@":  # pengecekan mark (akhir file)
+    arsipUser = open(path + "/user.csv", "r")
+    # membaca 1 baris pada file dan diberi mark
+    rekUser = arsipUser.readline() + "@"
+    while rekUser != "@":  # pengecekan mark (akhir file)
         i = 0
         data = ["" for i in range(3)]
         indexData = 0
         word = ""
         while indexData < 3:
             # pengecekan mark (akhir baris) dan pengecekan separator
-            if line[i] == ";" or line[i] == "@" or line[i] == "\n":
+            if rekUser[i] == ";" or rekUser[i] == "@" or rekUser[i] == "\n":
                 data[indexData] = word
                 indexData = indexData + 1
                 word = ""
             else:
-                word = word + line[i]
+                word = word + rekUser[i]
             i = i + 1
 
         var.users = add(tuple(data), var.users)  # memasukan data pada array
 
-        line = fileUser.readline() + "@"  # membaca 1 baris pada file dan diberi mark
+        # membaca 1 baris pada file dan diberi mark
+        rekUser = arsipUser.readline() + "@"
 
     # pembacaan file candi
-    fileCandi = open(path + "/candi.csv", "r")
-    line = fileCandi.readline() + "@"  # membaca 1 baris pada file dan diberi mark
-    while line != "@":  # pengecekan mark (akhir file)
+    arsipCandi = open(path + "/candi.csv", "r")
+    # membaca 1 baris pada file dan diberi mark
+    rekCandi = arsipCandi.readline() + "@"
+    while rekCandi != "@":  # pengecekan mark (akhir file)
         i = 0
         data = ["" for i in range(5)]
         indexData = 0
         word = ""
         while indexData < 5:
             # pengecekan mark (akhir baris) dan pengecekan separator
-            if line[i] == ";" or line[i] == "@" or line[i] == "\n":
+            if rekCandi[i] == ";" or rekCandi[i] == "@" or rekCandi[i] == "\n":
                 if indexData == 1:
                     data[indexData] = word
                 else:
@@ -173,24 +176,26 @@ def readCSV(path: str) -> None:
                 indexData = indexData + 1
                 word = ""
             else:
-                word = word + line[i]
+                word = word + rekCandi[i]
             i = i + 1
 
         var.candi = add(tuple(data), var.candi)  # memasukan data pada array
 
-        line = fileCandi.readline() + "@"  # membaca 1 baris pada file dan diberi mark
-    
+        # membaca 1 baris pada file dan diberi mark
+        rekCandi = arsipCandi.readline() + "@"
+
      # pembacaan file bahan bangunan
-    fileBahan = open(path + "/bahan_bangunan.csv", "r")
-    line = fileBahan.readline() + "@"  # membaca 1 baris pada file dan diberi mark
-    while line != "@":  # pengecekan mark (akhir file)
+    arsipBahan = open(path + "/bahan_bangunan.csv", "r")
+    # membaca 1 baris pada file dan diberi mark
+    rekBahan = arsipBahan.readline() + "@"
+    while rekBahan != "@":  # pengecekan mark (akhir file)
         i = 0
         data = ["" for i in range(3)]
         indexData = 0
         word = ""
         while indexData < 3:
             # pengecekan mark (akhir baris) dan pengecekan separator
-            if line[i] == ";" or line[i] == "@" or line[i] == "\n":
+            if rekBahan[i] == ";" or rekBahan[i] == "@" or rekBahan[i] == "\n":
                 if indexData == 2:
                     data[indexData] = int(word)
                 else:
@@ -198,16 +203,18 @@ def readCSV(path: str) -> None:
                 indexData = indexData + 1
                 word = ""
             else:
-                word = word + line[i]
+                word = word + rekBahan[i]
             i = i + 1
 
-        var.bahanBangunan = add(tuple(data), var.bahanBangunan)  # memasukan data pada array
+        # memasukan data pada array
+        var.bahanBangunan = add(tuple(data), var.bahanBangunan)
 
-        line = fileBahan.readline() + "@"  # membaca 1 baris pada file dan diberi mark
-    
-    fileUser.close()
-    fileCandi.close()
-    fileBahan.close()
+        # membaca 1 baris pada file dan diberi mark
+        rekBahan = arsipBahan.readline() + "@"
+
+    arsipUser.close()
+    arsipCandi.close()
+    arsipBahan.close()
     print(var.users)
     print(var.candi)
     print(var.bahanBangunan)
@@ -225,7 +232,7 @@ def writeCSV(path: str) -> None:
     dataUsers = ""
     dataCandis = ""
     dataBahans = ""
-    
+
     # penyusunan data array of user
     for i in range(var.users[1]):
         dataUser = var.users[0][i][0] + ";" + \
@@ -242,7 +249,7 @@ def writeCSV(path: str) -> None:
             var.bahanBangunan[0][i][1] + ";" + \
             str(var.bahanBangunan[0][i][2]) + "\n"
         dataBahans = dataBahans + dataBahan
-        
+
     fileUser = open(path + "/user.csv", "w")
     fileCandi = open(path + "/candi.csv", "w")
     fileBahan = open(path + "/bahan_bangunan.csv", "w")
