@@ -17,9 +17,7 @@ def save() -> None:
         print("Membuat folder " + path + "...")
         os.makedirs(path)
 
-    writeCSV(path + "/user.csv", "user")
-    writeCSV(path + "/candi.csv", "candi")
-    writeCSV(path + "/bahan_bangunan.csv", "bahan")
+    writeCSV(path)
     
     print("")
     print("Saving...")
