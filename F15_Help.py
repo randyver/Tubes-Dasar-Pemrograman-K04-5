@@ -3,8 +3,8 @@ from var import *
 from typing import *
 
 def help() -> None:
-    arrayBantuanUmum = ['login\n   Untuk masuk menggunakan akun', 'logout\n   Untuk keluar dari akun yang digunakan sekarang', 'save\n   Untuk menyimpan data yang berada di program', 
-                    'exit\n   Untuk keluar dari program dan kembali ke terminal']
+    bantuanUmum = ('login\n   Untuk masuk menggunakan akun', 'logout\n   Untuk keluar dari akun yang digunakan sekarang', 'save\n   Untuk menyimpan data yang berada di program', 
+                    'exit\n   Untuk keluar dari program dan kembali ke terminal')
     if currentUser[2] == '':
         print('=========== HELP ===========')
         print(f'1. {arrayBantuanUmum[0]}\n2. {arrayBantuanUmum[3]}')
