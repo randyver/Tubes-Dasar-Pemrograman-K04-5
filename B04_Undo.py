@@ -13,13 +13,13 @@ def undo() -> None:
     else:
         if var.stackUndo[1] >= 1: # pengecekan apakah ada jin yang bisa dibangkitkan kembali
             last = getLast()
-            user = last[0]
+            jin = last[0]
             candis = last[1]
-            if filterArr(var.users, lambda x: x[0] == user[0])[1] != 0 or var.users[1] >= 102:# pengecekan apakah jumlah jin sudah >= 100 atau belum dan pengecekan apakah username jin yang mau dibangkitkan sudah ada atau belum
+            if filterArr(var.users, lambda x: x[0] == jin[0])[1] != 0 or var.users[1] >= 102:# pengecekan apakah jumlah jin sudah >= 100 atau belum dan pengecekan apakah username jin yang mau dibangkitkan sudah ada atau belum
                 print("Undo gagal")
             else:
                 # jin dibangkitkan kembali
-                var.users = add(user, var.users)# menambah jin pada array of user
+                var.users = add(jin, var.users)# menambah jin pada array of user
                 if candis[1] != 0:# pengecekan apakah ada candi yang dibangun oleh jin ini atau tidak
                     # pembangunan ulang candi
                     for i in range(candis[1]):
