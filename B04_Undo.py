@@ -15,7 +15,7 @@ def undo() -> None:
             last = getLast()
             user = last[0]
             candis = last[1]
-            if filterArr(var.users, lambda x: x[0] == user[0])[1] != 0 or var.users > 102:# pengecekan apakah jumlah jin sudah >= 100 atau belum dan pengecekan apakah username jin yang mau dibangkitkan sudah ada atau belum
+            if filterArr(var.users, lambda x: x[0] == user[0])[1] != 0 or var.users[1] >= 102:# pengecekan apakah jumlah jin sudah >= 100 atau belum dan pengecekan apakah username jin yang mau dibangkitkan sudah ada atau belum
                 print("Undo gagal")
             else:
                 # jin dibangkitkan kembali
