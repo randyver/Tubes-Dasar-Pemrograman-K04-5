@@ -103,13 +103,6 @@ def filterArr(arr: Tuple[List[Tuple[str, str, str]], int] | Tuple[List[Tuple[int
 
     return temp
 
-
-# fungsi untuk mengecek apakah password yang dibuat sudah memenuhi kriteria yang ditentukan atau belum
-# password: password yang mau dicek
-# return: true jika panjang password berada pada rentang 5-25, selain itu false
-def validasiPassword(password: str) -> bool:
-    return (5 <= len(password) <= 25)
-
 # fungsi untuk membaca file CSV kemudian menyimpannya dalam sebuah array
 # path: alamat dari file CSV yang mau dibaca
 # tipe: data file CSV apa yang mau dibaca, ada 3 tipe yaitu bahan, candi, dan user
@@ -197,9 +190,6 @@ def readCSV(path: str) -> None:
     arsipUser.close()
     arsipCandi.close()
     arsipBahan.close()
-    print(var.users)
-    print(var.candi)
-    print(var.bahanBangunan)
 
 # fungsi untuk menuliskan data ke file CSV
 # path: alamat file CSV yang mau dituliskan
@@ -226,6 +216,7 @@ def writeCSV(path: str) -> None:
             str(var.bahanBangunan[0][i][2]) + "\n"
         rekBahan = rekBahan + dataBahan
 
+    #penulisan data ke file
     arsipUser = open(path + "/user.csv", "w")
     arsipCandi = open(path + "/candi.csv", "w")
     arsipBahan = open(path + "/bahan_bangunan.csv", "w")

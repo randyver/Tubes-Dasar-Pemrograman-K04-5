@@ -33,5 +33,3 @@ def bangunCandi() -> None:
         else:
             print("Bahan bangunan tidak mencukupi.")
             print("Candi tidak bisa dibangun!")
-
-    print(var.candi)

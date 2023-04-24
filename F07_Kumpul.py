@@ -1,17 +1,18 @@
 from util import *
-from var import *
+import var
 from typing import *
 
 def kumpul() -> None:
-    if currentUser[2] == 'jin_pengumpul':
+    if var.currentUser[2] == 'jin_pengumpul':
         jumlahPasir = randomAngka(0, 5)
         jumlahBatu = randomAngka(0, 5)
         jumlahAir = randomAngka(0, 5)
-        for i in range(bahanBangunan[1]):
-            if bahanBangunan[0][i][0] == 'pasir':
-                bahanBangunan[0][i][2] += jumlahPasir
-            elif bahanBangunan[0][i][0] == 'batu':
-                bahanBangunan[0][i][2] += jumlahBatu
-            elif bahanBangunan[0][i][0] == 'air':
-                bahanBangunan[0][i][2] += jumlahAir
+        
         print(f'Jin menemukan {jumlahPasir} pasir, {jumlahBatu} batu, dan {jumlahAir} air.')
+        
+        var.bahanBangunan[0][0] = ("pasir", "", var.bahanBangunan[0][0][2] + jumlahPasir)
+        var.bahanBangunan[0][1] = ("batu", "", var.bahanBangunan[0][1][2] + jumlahBatu)
+        var.bahanBangunan[0][2] = ("air", "", var.bahanBangunan[0][2][2] + jumlahAir)
+    else:
+        print("Kumpul hanya dapat diakses oleh akun Jin Pengumpul.")
+        
