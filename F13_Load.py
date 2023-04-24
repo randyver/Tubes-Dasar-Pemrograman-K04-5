@@ -9,16 +9,15 @@ def load() -> None:
     # pengambilan alamat folder data dari input pemain
     parser = argparse.ArgumentParser()
     parser.add_argument("folderPath")
-    args = parser.parse_args()
+    args = parser.parse_args() 
 
-    folderPath = args.folderPath
+    folderPath = args.folderPath # (string)
     if folderPath == "":  # pengecekan apakah pemain game sudah memberikan alamat folder data atau tidak
-        print("Tidak ada nama folder yang diberikan!")
-        print("")
+        print("Tidak ada nama folder yang diberikan!\n")
         print("Usage: python main.py <nama_folder>")
         exit()
 
-    folderPath = "save/" + args.folderPath
+    folderPath = "save/" + args.folderPath # (string)
     # pengecekan apakah alamat folder itu ada atau tidak
     if not os.path.isdir(folderPath):
         print('Folder "' + folderPath + '" tidak ditemukan.')

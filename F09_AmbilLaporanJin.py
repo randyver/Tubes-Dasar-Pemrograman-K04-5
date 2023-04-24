@@ -8,17 +8,17 @@ from typing import *
 def laporanJin() -> None:
     if (var.currentUser[2] != "bandung_bondowoso"):# pengecekan role apakah sudah sesuai atau belum
         print("Laporan jin hanya dapat diakses oleh akun Bandung Bondowoso.")
-    else:
-        jinPengumpul = filterArr(var.users, lambda x: x[2] == "jin_pengumpul")
-        jinPembangun = filterArr(var.users, lambda x: x[2] == "jin_pembangun")
-        totalJinPengumpul = jinPengumpul[1]
-        totalJinPembangun = jinPembangun[1]
-        totalJin = totalJinPembangun + totalJinPengumpul
+    else: # var.currentUser[2] == "bandung_bondowoso"
+        jinPengumpul = filterArr(var.users, lambda x: x[2] == "jin_pengumpul") # (arrUser)
+        jinPembangun = filterArr(var.users, lambda x: x[2] == "jin_pembangun") # (arrUser)
+        totalJinPengumpul = jinPengumpul[1] # (integer)
+        totalJinPembangun = jinPembangun[1] # (integer)
+        totalJin = totalJinPembangun + totalJinPengumpul # (integer)
 
-        jinTerajin = "-"
-        jinTermalas = "-"
-        maxCandi = 0
-        minCandi = 0
+        jinTerajin = "-" # (string)
+        jinTermalas = "-" # (string)
+        maxCandi = 0 # (integer)
+        minCandi = 0 # (integer)
         if (totalJin > 0): # pengecekan apakah bandung bondowoso mempunyai jin atau tidak
             jinTerajin = var.users[0][0][0]
             jinTermalas = var.users[0][0][0]
@@ -43,9 +43,9 @@ def laporanJin() -> None:
                     if var.users[0][i][0] > jinTermalas:
                         jinTermalas = var.users[0][i][0]
 
-        totalPasir = var.bahanBangunan[0][0][2]
-        totalBatu = var.bahanBangunan[0][1][2]
-        totalAir = var.bahanBangunan[0][2][2]
+        totalPasir = var.bahanBangunan[0][0][2] # (integer)
+        totalBatu = var.bahanBangunan[0][1][2] # (integer)
+        totalAir = var.bahanBangunan[0][2][2] # (integer)
 
         # menampilkan informasi ke layar
         print("\n> Total Jin: " + str(totalJin))

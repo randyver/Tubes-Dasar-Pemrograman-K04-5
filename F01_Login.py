@@ -11,10 +11,10 @@ def login() -> None:
         print("Login gagal!")
         print('Anda telah login dengan username ' +
               var.currentUser[0] + ', silahkan lakukan "logout" sebelum melakukan login kembali.')
-    else:
+    else: # var.currentUser == ("", "", "")
         # menerima input
-        username = input("Username: ")
-        password = input("Password: ")
+        username = input("Username: ") # (string)
+        password = input("Password: ") # (string)
 
         user = filterArr(var.users, lambda x: x[0] == username)
         if user[1] != 0:  # pengecekan apakah username ada atau tidak
@@ -25,7 +25,7 @@ def login() -> None:
                 print("Selamat datang, " + username + "!")
                 print(
                     'Masukkan command "help" untuk daftar command yang dapat kamu panggil.')
-            else:
+            else:  # password != user[0][0][1]
                 print("Password salah!")
-        else:
+        else: # user[1] == 0
             print("Username tidak terdaftar!")

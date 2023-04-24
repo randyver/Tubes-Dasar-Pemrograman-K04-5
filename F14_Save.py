@@ -31,7 +31,5 @@ def save() -> None:
     # menulis data ke dalam file CSV pada direktori yang telah dibuat
     writeCSV(path)
     
-    print("")
-    print("Saving...")
-    print("")
+    print("\nSaving...\n")
     print("Berhasil menyimpan data di folder " + path + "!")
