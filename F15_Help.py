@@ -3,6 +3,11 @@ import var
 from typing import *
 
 def help() -> None:
+    # SPESIFIKASI
+    # prosedur untuk menampikan semua command yang dapat digunakan dengan akses yang dimiliki pemain 
+    # KAMUS LOKAL
+    bantuanUmum : tuple of string
+    # ALGORITMA
     bantuanUmum = ('login\n   Untuk masuk menggunakan akun', 'logout\n   Untuk keluar dari akun yang digunakan sekarang', 'save\n   Untuk menyimpan data yang berada di program', 
                     'exit\n   Untuk keluar dari program dan kembali ke terminal')
     if var.currentUser[2] == '':
