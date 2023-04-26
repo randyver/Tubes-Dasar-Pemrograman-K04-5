@@ -163,33 +163,42 @@ def readCSV(path: str) -> None:
     arsipBahan = open(path + "/bahan_bangunan.csv", "r")
     # membaca 1 baris pada file dan diberi mark
     rekBahan = arsipBahan.readline() + "@"
-    while rekBahan != "@":  # pengecekan mark (akhir file)
-        i = 0
-        data = ["" for i in range(3)]
-        indexData = 0
-        word = ""
-        while indexData < 3:
-            # pengecekan mark (akhir baris) dan pengecekan separator
-            if rekBahan[i] == ";" or rekBahan[i] == "@" or rekBahan[i] == "\n":
-                if indexData == 2:
-                    data[indexData] = int(word)
+    if rekBahan == "@":
+        var.bahanBangunan = add(("pasir", "", 0), var.bahanBangunan)
+        var.bahanBangunan = add(("batu", "", 0), var.bahanBangunan)
+        var.bahanBangunan = add(("air", "", 0), var.bahanBangunan)
+    else:
+        while rekBahan != "@":  # pengecekan mark (akhir file)
+            i = 0
+            data = ["" for i in range(3)]
+            indexData = 0
+            word = ""
+            while indexData < 3:
+                # pengecekan mark (akhir baris) dan pengecekan separator
+                if rekBahan[i] == ";" or rekBahan[i] == "@" or rekBahan[i] == "\n":
+                    if indexData == 2:
+                        data[indexData] = int(word)
+                    else:
+                        data[indexData] = word
+                    indexData = indexData + 1
+                    word = ""
                 else:
-                    data[indexData] = word
-                indexData = indexData + 1
-                word = ""
-            else:
-                word = word + rekBahan[i]
-            i = i + 1
+                    word = word + rekBahan[i]
+                i = i + 1
 
-        # memasukan data pada array
-        var.bahanBangunan = add(tuple(data), var.bahanBangunan)
+            # memasukan data pada array
+            var.bahanBangunan = add(tuple(data), var.bahanBangunan)
 
-        # membaca 1 baris pada file dan diberi mark
-        rekBahan = arsipBahan.readline() + "@"
+            # membaca 1 baris pada file dan diberi mark
+            rekBahan = arsipBahan.readline() + "@"
+
 
     arsipUser.close()
     arsipCandi.close()
     arsipBahan.close()
+    print("user:", var.users)
+    print("candi:", var.candi)
+    print("bahan:", var.bahanBangunan)
 
 # fungsi untuk menuliskan data ke file CSV
 # path: alamat file CSV yang mau dituliskan

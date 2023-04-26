@@ -17,4 +17,3 @@ candi= ([],0) # tipe data: arrCandi
 bahanBangunan = ([],0) # tipe data: arrBahan
 gameEnd = False # tipe data: boolean
 stackUndo = [[], 0] # tipe data stackUndo
-
