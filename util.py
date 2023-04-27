@@ -246,6 +246,7 @@ def lcg(modulus: int, a: int, b: int, seed: int) -> Generator[int, None, None]:
 
 x = lcg(2**31, 1103515245, 12345, time.time())
 
+# B01 Random Number Generator
 # fungsi untuk mengenerate random int pada suatu rentang
 # min: batas bawah random integer (inklusif)
 # max: batas atas random integer (inklusif)
