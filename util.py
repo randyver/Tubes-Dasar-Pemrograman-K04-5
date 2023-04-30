@@ -196,9 +196,9 @@ def readCSV(path: str) -> None:
     arsipUser.close()
     arsipCandi.close()
     arsipBahan.close()
-    print("user:", var.users)
-    print("candi:", var.candi)
-    print("bahan:", var.bahanBangunan)
+    # print("user:", var.users)
+    # print("candi:", var.candi)
+    # print("bahan:", var.bahanBangunan)
 
 # fungsi untuk menuliskan data ke file CSV
 # path: alamat file CSV yang mau dituliskan
@@ -254,3 +254,4 @@ x = lcg(2**31, 1103515245, 12345, time.time())
 def randomAngka(min: int, max: int) -> int:
     # menyesuaikan dengan batas yang ditentukan
     return int(next(x) * ((max+1)-min) + min)
+
