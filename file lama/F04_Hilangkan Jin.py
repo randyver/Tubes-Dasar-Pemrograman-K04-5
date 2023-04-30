@@ -4,7 +4,7 @@ from typing import *
 import os
 
 def hapusjin(list_user, list_pass, list_role, id, pembuat, pasir, batu, air):
-    uname = input("Masukkan username jin: ") #ifrit, lala, zaki
+    uname = input("Masukkan username jin: ") 
     user, password, role = [], [], []
     for i in range(0, len(list_user)):
         if uname == list_user[i] and (list_role[i] == "jin_pengumpul" or list_role[i] == 'jin_pembangun'):
