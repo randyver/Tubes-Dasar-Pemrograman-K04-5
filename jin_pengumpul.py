@@ -6,9 +6,9 @@ from typing import *
 # F07 Jin Pengumpul
 def kumpul() -> None:
     # SPESIFIKASI
-    # fungsi untuk mengumpulkan bahan-bahan yang diperlukan untuk membangun candi
-    # fungsi hanya bisa diakses oleh Jin Pengumpul
-    # fungsi akan menambah jumlah bahan-bahan yang tersedia di variabel bahanBangunan sebesar angka random (0-5)
+    # prosedur untuk mengumpulkan bahan-bahan yang diperlukan untuk membangun candi
+    # prosedur hanya bisa diakses oleh Jin Pengumpul
+    # prosedur akan menambah jumlah bahan-bahan yang tersedia di variabel bahanBangunan sebesar angka random (0-5)
     # KAMUS LOKAL
     # jumlahPasir, jumlahBatu, jumlahAir : integer
     # ALGORITMA
@@ -18,7 +18,7 @@ def kumpul() -> None:
         jumlahAir = randomAngka(0, 5) # mendapatkan angka random di rentang 0-5
         
         print(f"Jin menemukan {jumlahPasir} pasir, {jumlahBatu} batu, dan {jumlahAir} air.")
-        
+        # memperbarui jumlah bahan bangunan
         for i in range(var.bahanBangunan[1]):
             if (var.bahanBangunan[0][i][0] == "pasir"):
                 var.bahanBangunan[0][i] = ("pasir", "", var.bahanBangunan[0][i][2] + jumlahPasir)
