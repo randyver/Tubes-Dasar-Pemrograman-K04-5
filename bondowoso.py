@@ -283,31 +283,30 @@ def laporanJin() -> None:
 
         jinTerajin = "-"  # (string)
         jinTermalas = "-"  # (string)
-        maxCandi = 9999  # (integer)
-        minCandi = -9999  # (integer)
+        maxCandi = -9999  # (integer)
+        minCandi = 9999  # (integer)
         if (totalJin > 0):  # pengecekan apakah bandung bondowoso mempunyai jin atau tidak
             for i in range(0, jins[1]):
                 banyakCandi = filterArr(
                     var.candi, lambda x: x[1] == jins[0][i][0])[1]
+                print("candi: " + str(banyakCandi))
 
-                if banyakCandi == 0 and jins[0][i][2] == "jin_pengumpul":
-                    break
-
-                # mencari jin terajin
-                if banyakCandi > maxCandi:
-                    maxCandi = banyakCandi
-                    jinTerajin = jins[0][i][0]
-                elif banyakCandi == maxCandi:
-                    if jins[0][i][0] < jinTerajin:
+                if not(banyakCandi == 0 and jins[0][i][2] == "jin_pengumpul"):  
+                    # mencari jin terajin
+                    if banyakCandi > maxCandi:
+                        maxCandi = banyakCandi
                         jinTerajin = jins[0][i][0]
+                    elif banyakCandi == maxCandi:
+                        if jins[0][i][0] < jinTerajin:
+                            jinTerajin = jins[0][i][0]
 
-                # mencari jin termalas
-                if banyakCandi < minCandi:
-                    minCandi = banyakCandi
-                    jinTermalas = jins[0][i][0]
-                elif banyakCandi == minCandi:
-                    if jins[0][i][0] > jinTermalas:
+                    # mencari jin termalas
+                    if banyakCandi < minCandi:
+                        minCandi = banyakCandi
                         jinTermalas = jins[0][i][0]
+                    elif banyakCandi == minCandi:
+                        if jins[0][i][0] > jinTermalas:
+                            jinTermalas = jins[0][i][0]
 
         totalPasir = 0  # (integer)
         totalBatu = 0  # (integer)
@@ -399,6 +398,8 @@ def laporanCandi() -> None:
 # undo juga akan gagal jika jumlah jin yang ada sudah lebih besar sama dengan 100
 # ketika jin dibangkitkan kembali maka candi yang mereka bangun sebelumnya juga akan dibangun kembali dengan id candi yang akan disesuaikan
 # ketika jumlah candi sudah >= 100 dan jin yang dibangkitkan kembali pernah membangun candi sebelumnya, maka undo tetap berhasil hanya saja candi yang lebih tidak akan disimpan
+
+
 def undo() -> None:
     # pengecekan role apakah sudah sesuai atau belum
     if (var.currentUser[2] != "bandung_bondowoso"):
@@ -410,7 +411,8 @@ def undo() -> None:
             candis = last[1]  # (arrCandi)
             # pengecekan apakah jumlah jin sudah >= 100 atau belum dan pengecekan apakah username jin yang mau dibangkitkan sudah ada atau belum
             if filterArr(var.users, lambda x: x[0] == jin[0])[1] != 0 or var.users[1] >= 102:
-                print("Undo gagal (username jin sudah ada atau jumlah jin sudah maksimal)")
+                print(
+                    "Undo gagal (username jin sudah ada atau jumlah jin sudah maksimal)")
             else:
                 # jin dibangkitkan kembali
                 # menambah jin pada array of user
