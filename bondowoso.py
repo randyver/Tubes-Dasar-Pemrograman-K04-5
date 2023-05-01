@@ -8,12 +8,11 @@ from typing import *
 
 def summonJin() -> None:
     # SPESIFIKASI
-    # fungsi untuk memanggil jin pengumpul atau jin pembangun dan menambahkannya sebagai user
-    # fungsi hanya bisa diakses oleh Bandung Bondowoso
+    # prosedur untuk memanggil jin pengumpul atau jin pembangun dan menambahkannya sebagai user
+    # prosedur hanya bisa diakses oleh Bandung Bondowoso
     # jumlah maksimal jin yang bisa di-summon adalah 100, username jin haruslah unik (tidak ada user dengan username sama), dan panjang password jin berada di rentang 5 sampai 25 (inklusif)
     # KAMUS LOKAL
-    # jenisJin : integer
-    # role, usernameJin, passwordJin : string
+    # jenisJin, role, usernameJin, passwordJin : string
     # validUsername : boolean
     # ALGORITMA
     if var.currentUser[2] == "bandung_bondowoso":
@@ -22,19 +21,19 @@ def summonJin() -> None:
                   " (2) Pembangun - Bertugas membangun candi", "", sep='\n')
             # loop menerima masukan jenis jin dan berhenti jika masukan jenis jin valid: (1) jin pengumpul, (2) jin pembangun
             while True:
-                jenisJin = (
-                    input("Masukkan nomor jenis jin yang ingin dipanggil: "))
-                if jenisJin == "1":
-                    print(f'\nMemilih jin \"Pengumpul\".\n')
-                    role = 'jin_pengumpul'
-                    break
-                elif jenisJin == "2":
-                    print(f"\nMemilih jin \"Pembangun\".\n")
-                    role = "jin_pembangun"
+                jenisJin = input("Masukkan nomor jenis jin yang ingin dipanggil: ")
+                if jenisJin == "1" or jenisJin == "2":
                     break
                 else:
                     print(f"\nTidak ada jenis jin bernomor \"{jenisJin}\"!\n")
-            # loop menerima masukan username jin dan berhenti jika masukan username jin valid (tidak ada user lain di variabel users dengan username masukan pengguna)
+            # memberikan role pada jin
+            if jenisJin == "1":
+                print(f'\nMemilih jin \"Pengumpul\".\n')
+                role = 'jin_pengumpul'
+            elif jenisJin == "2":
+                print(f"\nMemilih jin \"Pembangun\".\n")
+                role = "jin_pembangun"
+            # loop menerima masukan username jin dan berhenti jika masukan username jin valid (tidak ada user lain di variabel users dengan username yang sama dengan masukan pengguna)
             while True:
                 validUsername = True
                 usernameJin = input("Masukkan username jin: ")
