@@ -28,8 +28,8 @@ def summonJin() -> None:
                     print(f"\nTidak ada jenis jin bernomor \"{jenisJin}\"!\n")
             # memberikan role pada jin
             if jenisJin == "1":
-                print(f'\nMemilih jin \"Pengumpul\".\n')
-                role = 'jin_pengumpul'
+                print(f"\nMemilih jin \"Pengumpul\".\n")
+                role = "jin_pengumpul"
             elif jenisJin == "2":
                 print(f"\nMemilih jin \"Pembangun\".\n")
                 role = "jin_pembangun"
@@ -39,7 +39,7 @@ def summonJin() -> None:
                 usernameJin = input("Masukkan username jin: ")
                 for i in range(0, var.users[1]):
                     if usernameJin == var.users[0][i][0]:
-                        print(f'\nUsername "{usernameJin}" sudah diambil!\n')
+                        print(f"\nUsername \"{usernameJin}\" sudah diambil!\n")
                         validUsername = False
                         break
                 if validUsername:
@@ -51,7 +51,6 @@ def summonJin() -> None:
                     break
                 else:
                     print("\nPassword panjangnya harus 5-25 karakter!\n")
-
             # menambahkan jin ke variabel users
             var.users = add(
                 data=(usernameJin, passwordJin, role), arr=var.users)
