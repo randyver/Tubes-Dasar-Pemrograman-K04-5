@@ -97,9 +97,9 @@ def hapusJin() -> None:
                                    lambda x: x[0] == usernameJin)
                 var.candi = delete(var.candi,
                                    lambda x: x[1] == usernameJin)
-                print("Jin telah berhasil dihapus dari alam gaib.")
+                print("\nJin telah berhasil dihapus dari alam gaib.")
         else:
-            print("Tidak ada jin dengan username tersebut.")
+            print("\nTidak ada jin dengan username tersebut.")
 
 # FO5 Ubah Tipe Jin
 # fungsi untuk mengubah role jin dari pembangun ke pengumpul atau sebaliknya
