@@ -31,9 +31,9 @@ def bangun() -> None:
 
         if cukup:
             # mengurangi jumlah bahan bangunan pada array of bahan
-            var.bahanBangunan[0][indexPasir] = ("pasir", "", var.bahanBangunan[0][indexPasir][2] - pasir)
-            var.bahanBangunan[0][indexBatu] = ("batu", "", var.bahanBangunan[0][indexBatu][2] - batu)
-            var.bahanBangunan[0][indexAir] = ("air", "", var.bahanBangunan[0][indexAir][2] - air)
+            var.bahanBangunan[0][indexPasir] = ("pasir", "contoh bahan material yang berbentuk butiran", var.bahanBangunan[0][indexPasir][2] - pasir)
+            var.bahanBangunan[0][indexBatu] = ("batu", "benda alam yang tersusun atas kumpulan mineral penyusun kerak bumi yang menyatu secara padat maupun yang berserakan", var.bahanBangunan[0][indexBatu][2] - batu)
+            var.bahanBangunan[0][indexAir] = ("air", "suatu zat yang tersusun dari unsur kimia hidrogen dan oksigen dan berada dalam bentuk gas, cair, dan padat", var.bahanBangunan[0][indexAir][2] - air)
             
             # pembangunan candi
             idCandi = generateIdCandi()

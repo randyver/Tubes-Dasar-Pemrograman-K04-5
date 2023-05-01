@@ -21,11 +21,11 @@ def kumpul() -> None:
         # memperbarui jumlah bahan bangunan
         for i in range(var.bahanBangunan[1]):
             if (var.bahanBangunan[0][i][0] == "pasir"):
-                var.bahanBangunan[0][i] = ("pasir", "", var.bahanBangunan[0][i][2] + jumlahPasir)
+                var.bahanBangunan[0][i] = ("pasir", "contoh bahan material yang berbentuk butiran", var.bahanBangunan[0][i][2] + jumlahPasir)
             elif (var.bahanBangunan[0][i][0] == "batu"):
-                var.bahanBangunan[0][i] = ("batu", "", var.bahanBangunan[0][i][2] + jumlahBatu)
+                var.bahanBangunan[0][i] = ("batu", "benda alam yang tersusun atas kumpulan mineral penyusun kerak bumi yang menyatu secara padat maupun yang berserakan", var.bahanBangunan[0][i][2] + jumlahBatu)
             elif (var.bahanBangunan[0][i][0] == "air"):
-                var.bahanBangunan[0][i] = ("air", "", var.bahanBangunan[0][i][2] + jumlahAir)
+                var.bahanBangunan[0][i] = ("air", "suatu zat yang tersusun dari unsur kimia hidrogen dan oksigen dan berada dalam bentuk gas, cair, dan padat", var.bahanBangunan[0][i][2] + jumlahAir)
     else: # var.currentUser[2] != "jin_pengumpul"
         print("Kumpul hanya dapat diakses oleh akun Jin Pengumpul.")
         

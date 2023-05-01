@@ -167,13 +167,13 @@ def batchKumpul() -> None:
             for i in range(var.bahanBangunan[1]):
                 if (var.bahanBangunan[0][i][0] == "pasir"):
                     var.bahanBangunan[0][i] = (
-                        "pasir", "", var.bahanBangunan[0][i][2] + sumPasir)
+                        "pasir", "contoh bahan material yang berbentuk butiran", var.bahanBangunan[0][i][2] + sumPasir)
                 elif (var.bahanBangunan[0][i][0] == "batu"):
                     var.bahanBangunan[0][i] = (
-                        "batu", "", var.bahanBangunan[0][i][2] + sumBatu)
+                        "batu", "benda alam yang tersusun atas kumpulan mineral penyusun kerak bumi yang menyatu secara padat maupun yang berserakan", var.bahanBangunan[0][i][2] + sumBatu)
                 elif (var.bahanBangunan[0][i][0] == "air"):
                     var.bahanBangunan[0][i] = (
-                        "air", "", var.bahanBangunan[0][i][2] + sumAir)
+                        "air", "suatu zat yang tersusun dari unsur kimia hidrogen dan oksigen dan berada dalam bentuk gas, cair, dan padat", var.bahanBangunan[0][i][2] + sumAir)
 
 
 # F08 Batch Bangun
@@ -229,11 +229,11 @@ def batchBangun() -> None:
             if cukup:
                 # mengurangi jumlah bahan bangunan di array of bahan
                 var.bahanBangunan[0][indexPasir] = (
-                    "pasir", "", var.bahanBangunan[0][indexPasir][2] - sumPasir)
+                    "pasir", "contoh bahan material yang berbentuk butiran", var.bahanBangunan[0][indexPasir][2] - sumPasir)
                 var.bahanBangunan[0][indexBatu] = (
-                    "batu", "", var.bahanBangunan[0][indexBatu][2] - sumBatu)
+                    "batu", "benda alam yang tersusun atas kumpulan mineral penyusun kerak bumi yang menyatu secara padat maupun yang berserakan", var.bahanBangunan[0][indexBatu][2] - sumBatu)
                 var.bahanBangunan[0][indexAir] = (
-                    "air", "", var.bahanBangunan[0][indexAir][2] - sumAir)
+                    "air", "suatu zat yang tersusun dari unsur kimia hidrogen dan oksigen dan berada dalam bentuk gas, cair, dan padat", var.bahanBangunan[0][indexAir][2] - sumAir)
 
                 # membangun candi
                 for i in range(jins[1]):

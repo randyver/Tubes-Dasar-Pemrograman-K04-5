@@ -110,6 +110,7 @@ def filterArr(arr: Tuple[List[Tuple[str, str, str]], int] | Tuple[List[Tuple[int
 def readCSV(path: str) -> None:
     # pembacaan file user
     arsipUser = open(path + "/user.csv", "r")
+    arsipUser.readline()
     # membaca 1 baris pada file dan diberi mark
     rekUser = arsipUser.readline() + "@"
     while rekUser != "@":  # pengecekan mark (akhir file)
@@ -134,6 +135,7 @@ def readCSV(path: str) -> None:
 
     # pembacaan file candi
     arsipCandi = open(path + "/candi.csv", "r")
+    arsipCandi.readline()
     # membaca 1 baris pada file dan diberi mark
     rekCandi = arsipCandi.readline() + "@"
     while rekCandi != "@":  # pengecekan mark (akhir file)
@@ -161,12 +163,14 @@ def readCSV(path: str) -> None:
 
     # pembacaan file bahan bangunan
     arsipBahan = open(path + "/bahan_bangunan.csv", "r")
+    arsipBahan.readline()
+    
     # membaca 1 baris pada file dan diberi mark
     rekBahan = arsipBahan.readline() + "@"
     if rekBahan == "@":
-        var.bahanBangunan = add(("pasir", "", 0), var.bahanBangunan)
-        var.bahanBangunan = add(("batu", "", 0), var.bahanBangunan)
-        var.bahanBangunan = add(("air", "", 0), var.bahanBangunan)
+        var.bahanBangunan = add(("pasir", "contoh bahan material yang berbentuk butiran", 0), var.bahanBangunan)
+        var.bahanBangunan = add(("batu", "benda alam yang tersusun atas kumpulan mineral penyusun kerak bumi yang menyatu secara padat maupun yang berserakan", 0), var.bahanBangunan)
+        var.bahanBangunan = add(("air", "suatu zat yang tersusun dari unsur kimia hidrogen dan oksigen dan berada dalam bentuk gas, cair, dan padat", 0), var.bahanBangunan)
     else:
         while rekBahan != "@":  # pengecekan mark (akhir file)
             i = 0
@@ -192,26 +196,21 @@ def readCSV(path: str) -> None:
             # membaca 1 baris pada file dan diberi mark
             rekBahan = arsipBahan.readline() + "@"
 
-
     arsipUser.close()
     arsipCandi.close()
     arsipBahan.close()
-    # print("user:", var.users)
-    # print("candi:", var.candi)
-    # print("bahan:", var.bahanBangunan)
 
 # fungsi untuk menuliskan data ke file CSV
 # path: alamat file CSV yang mau dituliskan
 # tipe: data apa yang mau dituliskan ke CSV, tipe ada tiga yaitu: user, candi, dan bahan
 def writeCSV(path: str) -> None:
-    rekUser = ""
-    rekCandi = ""
-    rekBahan = ""
+    rekUser = "username;password;role\n"
+    rekCandi = "id;pembuat;pasir;batu;air\n"
+    rekBahan = "nama;deskripsi;jumlah\n"
 
     # penyusunan data array of user
     for i in range(var.users[1]):
-        dataUser = var.users[0][i][0] + ";" + \
-            var.users[0][i][1] + ";" + var.users[0][i][2] + "\n"
+        dataUser = var.users[0][i][0] + ";" + var.users[0][i][1] + ";" + var.users[0][i][2] + "\n"
         rekUser = rekUser + dataUser
     # penyusunan data array of candi
     for i in range(var.candi[1]):
@@ -220,9 +219,7 @@ def writeCSV(path: str) -> None:
         rekCandi = rekCandi + dataCandi
     # penyusunan data array of bahan
     for i in range(var.bahanBangunan[1]):
-        dataBahan = var.bahanBangunan[0][i][0] + ";" + \
-            var.bahanBangunan[0][i][1] + ";" + \
-            str(var.bahanBangunan[0][i][2]) + "\n"
+        dataBahan = var.bahanBangunan[0][i][0] + ";" + var.bahanBangunan[0][i][1] + ";" + str(var.bahanBangunan[0][i][2]) + "\n"
         rekBahan = rekBahan + dataBahan
 
     #penulisan data ke file
