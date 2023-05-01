@@ -119,49 +119,47 @@ def save() -> None:
     print("Berhasil menyimpan data di folder " + path + "!")
 
 # F15 Help
-
-
 def help() -> None:
     # SPESIFIKASI
-    # prosedur untuk menampikan semua command yang dapat digunakan dengan akses yang dimiliki pemain
+    # prosedur untuk menampilkan semua command beserta deskripsinya yang dapat digunakan sesuai dengan akses yang dimiliki pemain
     # KAMUS LOKAL
-    # bantuanUmum : tuple of string
+    # type bantuanUmum : <command : string, deskripsi : string>
+    # logout, save, exit : bantuanUmum
     # ALGORITMA
-    bantuanUmum = ('login\n   Untuk masuk menggunakan akun', 'logout\n   Untuk keluar dari akun yang digunakan sekarang', 'save\n   Untuk menyimpan data yang berada di program',
-                   'exit\n   Untuk keluar dari program dan kembali ke terminal')
+    logout = ("logout\n", "Untuk keluar dari akun yang digunakan sekarang")
+    save = ("save\n", "Untuk menyimpan data permainan")
+    exit = ("exit\n", "Untuk keluar dari program dan kembali ke terminal")
+    print('=========== HELP ===========')
     if var.currentUser[2] == '':
-        print('=========== HELP ===========')
-        print(f'1. {bantuanUmum[0]}\n2. {bantuanUmum[3]}')
-    elif var.currentUser[2] == 'bandung_bondowoso':
-        print('=========== HELP ===========')
-        print(f'1. {bantuanUmum[1]}')
-        print('2. summonjin\n   Untuk memanggil jin')
-        print('3. hapusjin\n   Untuk menghapus jin beserta candi yang dibuatnya')
-        print('4. ubahjin\n   Untuk mengubah tipe jin')
-        print('5. batchkumpul\n   Untuk mengerahkan seluruh pasukan jin pengumpul untuk mengumpulkan bahan atau pembangun')
-        print('6. batchbangun\n   Untuk mengerahkan seluruh pasukan jin pembangun untuk membangun candi')
-        print('7. laporancandi\n   Untuk menghasilkan laporan candi yang berisi jumlah candi yang telah dibangun beserta material yang digunakan, ID candi termahal, dan ID candi termurah')
-        print(f'8. {bantuanUmum[2]}')
-        print(f'9. {bantuanUmum[3]}')
-    elif var.currentUser[2] == 'roro_jonggrang':
-        print('=========== HELP ===========')
-        print(f'1. {bantuanUmum[1]}')
-        print('2. hancurkancandi\n   Untuk menghancurkan candi yang tersedia')
-        print('3. ayamberkokok\n   Untuk menyelesaikan permainan')
-        print(f'4. {bantuanUmum[2]}')
-        print(f'5. {bantuanUmum[3]}')
+        print("1. login\n   Untuk masuk menggunakan akun")
+        print(f"2. {exit[0]}   {exit[1]}")
+    elif var.currentUser[2] == "bandung_bondowoso":
+        print(f"1. {logout[0]}   {logout[1]}")
+        print("2. summonjin\n   Untuk memanggil jin")
+        print("3. hapusjin\n   Untuk menghapus jin beserta candi yang dibuatnya")
+        print("4. ubahjin\n   Untuk mengubah tipe jin")
+        print("5. batchkumpul\n   Untuk mengerahkan seluruh pasukan jin pengumpul agar mengumpulkan bahan atau pembangun")
+        print("6. batchbangun\n   Untuk mengerahkan seluruh pasukan jin pembangun agar membangun candi")
+        print("7. laporanjin\n   Untuk menampilkan informasi berupa jumlah jin yang tersedia, jumlah jin pada setiap", "\n   role yang tersedia, jin terajin, jin termalas, dan jumlah bahan bangunan yang dimiliki")
+        print("8. laporancandi\n   Untuk menampilkan informasi berupa jumlah candi yang telah dibangun beserta", "\n   material yang digunakan untuk membangunnya, ID candi termahal beserta harganya,", "\n   dan ID candi termurah beserta harganya")
+        print(f"9. {save[0]}   {save[1]}")
+        print(f"10.{exit[0]}   {exit[1]}")
+    elif var.currentUser[2] == "roro_jonggrang":
+        print(f"1. {logout[0]}   {logout[1]}")
+        print("2. hancurkancandi\n   Untuk menghancurkan candi yang tersedia")
+        print("3. ayamberkokok\n   Untuk menyelesaikan permainan dan menampilkan pemenang")
+        print(f"4. {save[0]}   {save[1]}")
+        print(f"5. {exit[0]}   {exit[1]}")
     elif var.currentUser[2] == 'jin_pengumpul':
-        print('=========== HELP ===========')
-        print(f'1. {bantuanUmum[1]}')
-        print('2. kumpul\n   Untuk mengumpulkan resource candi')
-        print(f'3. {bantuanUmum[2]}')
-        print(f'4. {bantuanUmum[3]}')
+        print(f"1. {logout[0]}   {logout[1]}")
+        print("2. kumpul\n   Untuk mengumpulkan resource candi")
+        print(f"3. {save[0]}   {save[1]}")
+        print(f"4. {exit[0]}   {exit[1]}")
     else:  # var.currentUser[2] == 'jin_pembangun':
-        print('=========== HELP ===========')
-        print(f'1. {bantuanUmum[1]}')
-        print('2. bangun\n   Untuk membangun candi')
-        print(f'3. {bantuanUmum[2]}')
-        print(f'4. {bantuanUmum[3]}')
+        print(f"1. {logout[0]}   {logout[1]}")
+        print("2. bangun\n   Untuk membangun candi")
+        print(f"3. {save[0]}   {save[1]}")
+        print(f"4. {exit[0]}   {exit[1]}")
 
 # F16 Exit
 # fungsi untuk keluar dari program game ini
